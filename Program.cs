@@ -1,104 +1,109 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Collections;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Threading;
 
-class Program
+namespace CSWS
 {
-    [DllImport("user32.dll")]
-    static extern IntPtr GetForegroundWindow();
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    static extern bool LockWorkStation();
-
-    public static List<string> BlockedList = new();
-
-    static void Main()
+    class Program
     {
-        UpdateBlockedList();
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
 
-        while (true)
+        [DllImport("user32.dll")]
+        static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool LockWorkStation();
+
+        private static readonly HashSet<string> _blockedApplications =
+            new(StringComparer.OrdinalIgnoreCase);
+
+        static void Main()
         {
-            Console.WriteLine("Checking...");
+            LoadBlockedApplications();
 
-            // AllProcesses();
-            ApplicationInFocus();
+            Console.WriteLine("Monitorando aplicações...\n");
 
-            Thread.Sleep(2000);
-        }
-    }
-
-    static void UpdateBlockedList()
-    {
-        Console.WriteLine("Atualizando lista...");
-        BlockedList.Clear();
-        string[] blockList = File.ReadAllText("blockedList.txt").Split(',');
-        blockList.ToList().ForEach(x => BlockedList.Add(x));
-    }
-
-    // Comming soon
-    static void AllProcesses()
-    {
-        var activeProcesses = new HashSet<int>();
-
-
-        var currentProcesses = Process.GetProcesses();
-
-        foreach (var p in currentProcesses)
-        {
-            if (!activeProcesses.Contains(p.Id))
+            while (true)
             {
-                activeProcesses.Add(p.Id);
+                CheckForegroundApplication();
+                Thread.Sleep(2000);
             }
         }
 
-        activeProcesses.RemoveWhere(id =>
+        private static void LoadBlockedApplications()
         {
             try
             {
-                return Process.GetProcessById(id) == null;
+                if (!File.Exists("blockedList.txt"))
+                {
+                    Console.WriteLine("Arquivo blockedList.txt não encontrado.");
+                    return;
+                }
+
+                foreach (var line in File.ReadAllLines("blockedList.txt"))
+                {
+                    var app = line.Trim();
+                    if (!string.IsNullOrWhiteSpace(app))
+                        _blockedApplications.Add(app);
+                }
+
+                Console.WriteLine("Lista carregada:");
+                foreach (var app in _blockedApplications)
+                    Console.WriteLine(" - " + app);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao carregar lista: " + ex.Message);
+            }
+        }
+
+        private static void CheckForegroundApplication()
+        {
+            IntPtr handle = GetForegroundWindow();
+
+            if (handle == IntPtr.Zero)
+                return;
+
+            GetWindowThreadProcessId(handle, out uint pid);
+
+            try
+            {
+                var process = Process.GetProcessById((int)pid);
+                var processName = process.ProcessName + ".exe";
+
+                Console.WriteLine("Em foco: " + processName);
+
+                if (_blockedApplications.Contains(processName))
+                {
+                    Console.WriteLine("APLICAÇÃO BLOQUEADA DETECTADA!");
+
+                    try
+                    {
+                        process.Kill();
+                        Console.WriteLine("Processo encerrado.");
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Não foi possível fechar. Bloqueando Windows.");
+                        LockDesktop();
+                    }
+                }
             }
             catch
             {
-                return true;
+                // processo pode ter fechado entre a leitura
             }
-        });
-    }
+        }
 
-    static void ApplicationInFocus()
-    {
-        IntPtr handle = GetForegroundWindow();
-        StringBuilder buffer = new StringBuilder(256);
-        if (GetWindowText(handle, buffer, 256) > 0)
-            BlockedList.ForEach(x =>
-            {
-                string[] splitedName = buffer.ToString().Split();
-                splitedName.ToList().ForEach(y =>
-                {
-                    if (x.Contains(y, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        Console.WriteLine("Aplicação proibida em foco: " + buffer.ToString());
-                        LockDesktop();
-                    }
-                });
-            });
-    }
-
-    public static void LockDesktop()
-    {
-        bool result = LockWorkStation();
-        if (result == false)
+        public static void LockDesktop()
         {
-            throw new Win32Exception(Marshal.GetLastWin32Error());
+            if (!LockWorkStation())
+                throw new Win32Exception(Marshal.GetLastWin32Error());
         }
     }
 }
