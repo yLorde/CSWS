@@ -1,0 +1,15 @@
+C:\Codes\CSWS\bin\Debug\net9.0\CSWS.exe
+C:\Codes\CSWS\bin\Debug\net9.0\CSWS.deps.json
+C:\Codes\CSWS\bin\Debug\net9.0\CSWS.runtimeconfig.json
+C:\Codes\CSWS\bin\Debug\net9.0\CSWS.dll
+C:\Codes\CSWS\bin\Debug\net9.0\CSWS.pdb
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.AssemblyInfoInputs.cache
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.AssemblyInfo.cs
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.csproj.CoreCompileInputs.cache
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.sourcelink.json
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.dll
+C:\Codes\CSWS\obj\Debug\net9.0\refint\CSWS.dll
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.pdb
+C:\Codes\CSWS\obj\Debug\net9.0\CSWS.genruntimeconfig.cache
+C:\Codes\CSWS\obj\Debug\net9.0\ref\CSWS.dll
