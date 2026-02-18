@@ -1,41 +1,41 @@
 # 📚 CSWS --- Controlled Study Windows Shield
 
-**CSWS** é uma aplicação em C# desenvolvida para ajudar você a manter o
-foco durante estudos ou tarefas importantes, bloqueando automaticamente
-aplicativos distrativos definidos em uma lista personalizada.
+**CSWS** is a C# application designed to help you stay focused during
+study sessions or important tasks by automatically blocking distracting
+applications defined in a custom list.
 
-Se um aplicativo bloqueado for aberto, o sistema pode fechar o programa
-ou bloquear o Windows, evitando procrastinação.
-
-------------------------------------------------------------------------
-
-## ✨ Funcionalidades
-
-✅ Detecta o aplicativo em foco no Windows\
-✅ Verifica se ele está na lista de bloqueio\
-✅ Bloqueia o acesso automaticamente\
-✅ Pode bloquear a estação de trabalho do Windows\
-✅ Lista de aplicativos totalmente configurável\
-✅ Aplicação leve e simples
+If a blocked application is opened, the system can close the program or
+lock Windows, preventing procrastination.
 
 ------------------------------------------------------------------------
 
-## 🎯 Objetivo
+## ✨ Features
 
-O CSWS foi criado para ajudar estudantes e profissionais a manterem a
-produtividade, impedindo o acesso a aplicativos que causam distração
-durante períodos de foco.
-
-Exemplos de uso:
-
--   Bloquear jogos durante estudo\
--   Bloquear redes sociais durante trabalho\
--   Criar sessões de foco profundo\
--   Controle de uso do computador
+✅ Detects the application currently in focus on Windows\
+✅ Checks whether it is on the block list\
+✅ Automatically blocks access\
+✅ Can lock the Windows workstation\
+✅ Fully configurable application list\
+✅ Lightweight and simple application
 
 ------------------------------------------------------------------------
 
-## 🧱 Estrutura do Projeto
+## 🎯 Purpose
+
+CSWS was created to help students and professionals maintain
+productivity by preventing access to distracting applications during
+focus periods.
+
+Examples of use:
+
+-   Block games during study\
+-   Block social media during work\
+-   Create deep focus sessions\
+-   Control computer usage
+
+------------------------------------------------------------------------
+
+## 🧱 Project Structure
 
     CSWS/
     ├── Program.cs
@@ -44,20 +44,20 @@ Exemplos de uso:
     ├── CSWS.sln
     └── README.md
 
-### Arquivos importantes
+### Important files
 
-  Arquivo             Descrição
-  ------------------- ---------------------------------
-  `Program.cs`        Lógica principal da aplicação
-  `blockedList.txt`   Lista de aplicativos bloqueados
-  `.csproj`           Configuração do projeto
-  `.sln`              Solution do Visual Studio
+  File                Description
+  ------------------- ------------------------------
+  `Program.cs`        Main application logic
+  `blockedList.txt`   List of blocked applications
+  `.csproj`           Project configuration
+  `.sln`              Visual Studio solution
 
 ------------------------------------------------------------------------
 
-## ⚙️ Como usar
+## ⚙️ How to use
 
-### 1️⃣ Clone o repositório
+### 1️⃣ Clone the repository
 
 ``` bash
 git clone https://github.com/yLorde/CSWS.git
@@ -66,21 +66,21 @@ cd CSWS
 
 ------------------------------------------------------------------------
 
-### 2️⃣ Configure os aplicativos bloqueados
+### 2️⃣ Configure blocked applications
 
-Abra o arquivo:
+Open the file:
 
     blockedList.txt
 
-Adicione os nomes dos executáveis separados por vírgula.
+Add executable names separated by commas.
 
-Exemplo:
+Example:
 
     chrome.exe, discord.exe, steam.exe
 
 ------------------------------------------------------------------------
 
-### 3️⃣ Compile o projeto
+### 3️⃣ Build the project
 
 ``` bash
 dotnet build
@@ -88,54 +88,54 @@ dotnet build
 
 ------------------------------------------------------------------------
 
-### 4️⃣ Execute
+### 4️⃣ Run
 
 ``` bash
 dotnet run
 ```
 
-O programa ficará monitorando continuamente o aplicativo em foco.
+The program will continuously monitor the currently focused application.
 
 ------------------------------------------------------------------------
 
-## 🔒 Como funciona internamente
+## 🔒 How it works internally
 
-O sistema:
+The system:
 
-1.  Detecta a janela atualmente em foco\
-2.  Obtém o nome do aplicativo ativo\
-3.  Compara com a lista bloqueada\
-4.  Se estiver bloqueado:
-    -   bloqueia o Windows ou encerra o processo
+1.  Detects the currently focused window\
+2.  Retrieves the active application name\
+3.  Compares it with the blocked list\
+4.  If blocked:
+    -   locks Windows or terminates the process
 
 ------------------------------------------------------------------------
 
-## 🧩 Requisitos
+## 🧩 Requirements
 
 -   Windows\
 -   .NET SDK\
--   Permissão para bloquear estação de trabalho
+-   Permission to lock workstation
 
 ------------------------------------------------------------------------
 
-## 🛠️ Possíveis melhorias futuras
+## 🛠️ Possible future improvements
 
-* [ ]   Interface gráfica (GUI)\
-* [ ]   Modo whitelist\
-* [ ]   Temporizador de foco\
-* [ ]   Estatísticas de uso\
-* [ ]   Perfis de bloqueio\
-* [ ]   Integração com modo Pomodoro\
-* [ ]   Serviço do Windows
-
-------------------------------------------------------------------------
-
-## 📄 Licença
-
-Este projeto está licenciado sob a licença MIT.
+-   [ ] Graphical interface (GUI)\
+-   [ ] Whitelist mode\
+-   [ ] Focus timer\
+-   [ ] Usage statistics\
+-   [ ] Blocking profiles\
+-   [ ] Pomodoro mode integration\
+-   [ ] Windows service
 
 ------------------------------------------------------------------------
 
-## 👨‍💻 Autor
+## 📄 License
 
-Desenvolvido por **yLorde**
+This project is licensed under the MIT License.
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Developed by **yLorde**

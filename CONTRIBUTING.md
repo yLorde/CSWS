@@ -1,32 +1,32 @@
 # 🤝 Contributing to CSWS
 
-Obrigado por considerar contribuir com o **CSWS --- Controlled Study
+Thank you for considering contributing to **CSWS --- Controlled Study
 Windows Shield**!
 
-Este documento descreve como você pode ajudar a melhorar o projeto de
-forma organizada e eficiente.
+This document describes how you can help improve the project in an
+organized and efficient way.
 
 ------------------------------------------------------------------------
 
-## 📌 Como contribuir
+## 📌 How to contribute
 
-Você pode contribuir de várias formas:
+You can contribute in several ways:
 
--   🐛 Reportando bugs
--   💡 Sugerindo melhorias
--   🧩 Implementando novas funcionalidades
--   📝 Melhorando a documentação
--   🧪 Escrevendo testes
--   🎨 Melhorando a interface ou experiência do usuário
--   🔐 Aumentando a segurança do sistema
+-   🐛 Reporting bugs\
+-   💡 Suggesting improvements\
+-   🧩 Implementing new features\
+-   📝 Improving documentation\
+-   🧪 Writing tests\
+-   🎨 Improving the interface or user experience\
+-   🔐 Enhancing system security
 
 ------------------------------------------------------------------------
 
-## 🚀 Fluxo de contribuição
+## 🚀 Contribution workflow
 
-### 1️⃣ Faça um Fork do projeto
+### 1️⃣ Fork the project
 
-Clique em **Fork** no repositório original e clone sua cópia:
+Click **Fork** on the original repository and clone your copy:
 
 ``` bash
 git clone https://github.com/yLorde/CSWS.git
@@ -35,15 +35,15 @@ cd CSWS
 
 ------------------------------------------------------------------------
 
-### 2️⃣ Crie uma branch
+### 2️⃣ Create a branch
 
-Use nomes claros e descritivos:
+Use clear and descriptive names:
 
 ``` bash
-git checkout -b feature/nome-da-feature
+git checkout -b feature/feature-name
 ```
 
-Exemplos:
+Examples:
 
     feature/gui-interface
     fix/process-detection
@@ -51,26 +51,26 @@ Exemplos:
 
 ------------------------------------------------------------------------
 
-### 3️⃣ Faça suas alterações
+### 3️⃣ Make your changes
 
-Recomendações importantes:
+Important recommendations:
 
-✔ Mantenha o código limpo e organizado\
-✔ Siga o padrão de código existente\
-✔ Comente trechos complexos\
-✔ Teste antes de enviar
+✔ Keep the code clean and organized\
+✔ Follow the existing code style\
+✔ Comment complex sections\
+✔ Test before submitting
 
 ------------------------------------------------------------------------
 
-### 4️⃣ Commit das alterações
+### 4️⃣ Commit your changes
 
-Use mensagens claras e objetivas:
+Use clear and objective messages:
 
 ``` bash
 git commit -m "Add process termination fallback logic"
 ```
 
-Boas práticas:
+Best practices:
 
     Add feature
     Fix bug
@@ -80,86 +80,86 @@ Boas práticas:
 
 ------------------------------------------------------------------------
 
-### 5️⃣ Envie para seu fork
+### 5️⃣ Push to your fork
 
 ``` bash
-git push origin sua-branch
+git push origin your-branch
 ```
 
 ------------------------------------------------------------------------
 
-### 6️⃣ Abra um Pull Request
+### 6️⃣ Open a Pull Request
 
-Explique claramente:
+Clearly explain:
 
--   O que foi feito
--   Por que foi feito
--   Como testar
--   Screenshots (se aplicável)
-
-------------------------------------------------------------------------
-
-## 🐛 Reportando bugs
-
-Ao abrir uma issue, inclua:
-
--   Descrição clara do problema
--   Passos para reproduzir
--   Comportamento esperado
--   Comportamento atual
--   Sistema operacional
--   Versão do .NET
--   Logs (se houver)
+-   What was done\
+-   Why it was done\
+-   How to test it\
+-   Screenshots (if applicable)
 
 ------------------------------------------------------------------------
 
-## 💡 Sugerindo melhorias
+## 🐛 Reporting bugs
 
-Explique:
+When opening an issue, include:
 
--   Qual problema resolve
--   Como funcionaria
--   Benefícios esperados
--   Alternativas consideradas
-
-------------------------------------------------------------------------
-
-## 📐 Padrões de código
-
--   Linguagem: C#
--   Framework: .NET
--   Convenções: PascalCase para métodos e classes
--   Código deve ser legível e bem estruturado
--   Evitar código morto ou não utilizado
+-   Clear description of the problem\
+-   Steps to reproduce\
+-   Expected behavior\
+-   Current behavior\
+-   Operating system\
+-   .NET version\
+-   Logs (if available)
 
 ------------------------------------------------------------------------
 
-## 🧪 Testes
+## 💡 Suggesting improvements
 
-Sempre que possível:
+Explain:
 
--   Teste manualmente sua alteração
--   Garanta que não quebrou funcionalidades existentes
--   Valide comportamento em cenários reais
-
-------------------------------------------------------------------------
-
-## 🔐 Segurança
-
-Se encontrar vulnerabilidades ou problemas críticos:
-
-👉 Não abra issue pública\
-👉 Entre em contato diretamente com o mantenedor
+-   What problem it solves\
+-   How it would work\
+-   Expected benefits\
+-   Alternatives considered
 
 ------------------------------------------------------------------------
 
-## 📄 Licença
+## 📐 Code standards
 
-Ao contribuir, você concorda que suas contribuições serão licenciadas
-sob a mesma licença do projeto.
+-   Language: C#\
+-   Framework: .NET\
+-   Conventions: PascalCase for methods and classes\
+-   Code must be readable and well structured\
+-   Avoid dead or unused code
 
 ------------------------------------------------------------------------
 
-## 🙌 Obrigado por contribuir!
+## 🧪 Testing
 
-Sua ajuda torna o CSWS melhor para todos.
+Whenever possible:
+
+-   Test your changes manually\
+-   Ensure existing functionality is not broken\
+-   Validate behavior in real-world scenarios
+
+------------------------------------------------------------------------
+
+## 🔐 Security
+
+If you find vulnerabilities or critical issues:
+
+👉 Do not open a public issue\
+👉 Contact the maintainer directly
+
+------------------------------------------------------------------------
+
+## 📄 License
+
+By contributing, you agree that your contributions will be licensed
+under the same license as the project.
+
+------------------------------------------------------------------------
+
+## 🙌 Thank you for contributing!
+
+Your help makes CSWS better for everyone.
